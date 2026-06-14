@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000/api",
+  baseURL: "https://mavert-api-production.up.railway.app/api",
+  // baseURL: "https://mavert-api-production.up.railway.app" || "http://localhost:3000/api",
 });
 
 API.interceptors.request.use((config) => {
