@@ -1,0 +1,34 @@
+// ===== BRAND THEME =====
+
+// Primary Identity Colors
+$primary-teal: #0fa3a3;
+$secondary-navy: #1b2a4e;
+
+// Accent Colors
+$accent-green: #3bb273;
+$accent-red: #ef476f;
+$accent-yellow: #ffb703;
+
+// Neutral Colors
+$color-gray-light: #f1f5f9;
+$color-gray-dark: #6b7280;
+
+// Text Colors
+$text-dark: #1f2937;
+$text-muted: #6b7280;
+
+// Semantic Colors
+$color-green: $accent-green;
+$color-red: $accent-red;
+$color-yellow: $accent-yellow;
+
+// Shadows
+$card-shadow:
+0 10px 30px rgba(0,0,0,0.05);
+
+// ===== Compatibility Mapping (IMPORTANT) =====
+
+// Old style semantic variables used in components
+$primary-color: $primary-teal;
+$danger-color: $accent-red;
+$warning-color: $accent-yellow;

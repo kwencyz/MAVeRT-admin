@@ -1,0 +1,43 @@
+@use '../index' as *;
+
+.patient-table {
+  border-radius: 20px;
+  overflow: hidden;
+  width: 100%;
+  padding: 10px;
+  border-collapse: collapse;
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.04);
+
+  thead {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+
+
+  th {
+    background: rgba(15,163,163,0.08);
+    color: $secondary-navy;
+  }
+
+  td, th {
+    padding: 12px 15px;
+  }
+
+  a {
+    color: $primary-teal;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  tr {
+    transition: all .2s ease;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(15,163,163,0.04);
+    }
+  }
+}

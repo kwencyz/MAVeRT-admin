@@ -1,0 +1,12 @@
+@import "./variables";
+@import "./mixins";
+@import "./buttons";
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: $bg-light;
+  color: $text-dark;
+  margin: 0;
+  padding: 0;
+}

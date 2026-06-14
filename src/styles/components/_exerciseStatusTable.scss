@@ -1,0 +1,45 @@
+@use '../index' as *;
+
+.exercise-status-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+
+  th {
+    background: #f3f6f9;
+    text-align: left;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+  }
+
+  td {
+    padding: 14px;
+    border-top: 1px solid #eef2f7;
+    font-size: 14px;
+  }
+
+  tr:hover {
+    background: #f9fbfd;
+  }
+}
+
+.status-label {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+
+  &.correct {
+    background: rgba(46,125,50,0.1);
+    color: $color-green;
+  }
+
+  &.incorrect {
+    background: rgba(211,47,47,0.1);
+    color: $color-red;
+  }
+}

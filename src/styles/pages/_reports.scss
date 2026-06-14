@@ -1,0 +1,186 @@
+@use '../index' as *;
+
+.reports-page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 10px 0;
+
+  //Title
+  .page-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: $primary-color;
+    letter-spacing: 0.3px;
+  }
+
+  //Filter
+  .filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: $card-shadow;
+    border: 1px solid #eef2f7;
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    select,
+    input {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #d6dbe1;
+      background: #f9fbfd;
+      font-size: 14px;
+      transition: 0.2s ease;
+      min-width: 160px;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        background: #ffffff;
+      }
+    }
+
+    button {
+      padding: 10px 16px;
+      background: $primary-color;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  //Error 
+  .error-text {
+    color: #d93025;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  //Report Document (PDF)
+  .report-document {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: $card-shadow;
+    border: 1px solid #e8edf2;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  //Report Header
+  .report-header {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eef2f7;
+
+    h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: $primary-color;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+  }
+
+//Report Section
+  .report-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    h4 {
+      font-size: 17px;
+      font-weight: 600;
+      color: $primary-color;
+    }
+  }
+
+  .report-result.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+
+  .metric {
+    background: #f8fafc;
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid #e5eaf0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: 0.2s ease;
+
+    span {
+      font-size: 13px;
+      color: #6b7280;
+      letter-spacing: 0.3px;
+    }
+
+    strong {
+      font-size: 22px;
+      font-weight: 600;
+      color: $primary-color;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+//Export button
+  .export-btn {
+    align-self: flex-start;
+    padding: 12px 20px;
+    background: $primary-color;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+  }
+}

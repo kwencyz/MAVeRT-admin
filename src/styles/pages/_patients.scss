@@ -1,0 +1,76 @@
+@use '../index' as *;
+
+.patients-page {
+  padding: 30px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.patients-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+
+  h2 {
+    color: $secondary-navy;
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: 14px;
+    color: $text-muted;
+  }
+}
+
+.search-input {
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid #d1d5db;
+  width: 280px;
+  transition: all .25s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-teal;
+    box-shadow: 0 0 0 3px rgba(15,163,163,0.15);
+  }
+}
+
+.pagination {
+  margin-top: 25px;
+  display: flex;
+  gap: 10px;
+
+  button {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    cursor: pointer;
+    transition: all .25s ease;
+
+    &.active {
+      background: $primary-teal;
+      color: white;
+      border-color: $primary-teal;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.patients-loading {
+  padding: 40px;
+  text-align: center;
+}
+
+.empty-state {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  color: $text-muted;
+}

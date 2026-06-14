@@ -1,0 +1,49 @@
+@use '../index' as *;
+
+.summary-card {
+  background: white;
+  padding: 26px;
+  border-radius: 22px;
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.03);
+  transition: all .3s ease;
+
+  &.danger {
+    border-left: 5px solid #e63946;
+  }
+
+   .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .trend {
+    font-size: 14px;
+
+    &.up {
+      color: #2e7d32;
+    }
+
+    &.down {
+      color: #e63946;
+    }
+  }
+
+  p {
+    color: $text-muted;
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 34px;
+    color: $primary-teal;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 30px 60px rgba(0,0,0,0.08);
+  }
+}

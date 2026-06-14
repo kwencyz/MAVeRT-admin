@@ -1,0 +1,12 @@
+@use '../index' as *;
+
+.adherence-badge {
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+
+  &.green { background: $color-green; }
+  &.orange { background: $color-yellow; }
+  &.red { background: $color-red; }
+}
