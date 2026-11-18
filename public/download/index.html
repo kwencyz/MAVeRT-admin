@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muat Turun MAVeRT</title>
+  <meta name="description" content="Muat turun aplikasi MAVeRT untuk terapi pemulihan vestibular di rumah, dan cara memasangnya di telefon Android." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #00796B;
+      --teal-dark: #004D40;
+      --teal-soft: #E0F2F1;
+      --text: #1A1A1A;
+      --muted: #4A4A4A;
+      --bg: #F4FBFB;
+      --card: #FFFFFF;
+      --line: #D5E5E3;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    a { color: var(--teal); }
+    a:hover { color: var(--teal-dark); }
+    h1, h2, h3 { line-height: 1.2; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+    /* Top bar */
+    .topbar { background: var(--card); border-bottom: 1px solid var(--line); }
+    .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 21px; color: var(--teal-dark); text-decoration: none; }
+    .brand-mark { width: 38px; height: 38px; border-radius: 10px; background: var(--teal); color: #fff; display: grid; place-items: center; font-size: 19px; }
+    .topnav { display: flex; gap: 22px; font-size: 16px; }
+    .topnav .desktop-only { display: none; }
+
+    /* Hero */
+    .hero .wrap { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; padding-top: 32px; padding-bottom: 28px; }
+    .hero-text { flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+    .pill { align-self: flex-start; background: var(--teal-soft); color: var(--teal-dark); font-weight: 700; font-size: 14px; padding: 5px 12px; border-radius: 999px; }
+    .hero h1 { margin: 0; font-size: 34px; color: var(--teal-dark); }
+    .lead { margin: 0; color: var(--muted); max-width: 560px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 4px; }
+    .btn-download {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--teal); color: #fff; text-decoration: none; font-weight: 700; font-size: 20px;
+      min-height: 60px; padding: 0 28px; border-radius: 14px; width: 100%;
+    }
+    .btn-download:hover { background: var(--teal-dark); color: #fff; }
+    .btn-download:focus-visible { outline: 3px solid var(--teal-dark); outline-offset: 3px; }
+    .see-steps { display: none; font-weight: 700; }
+    .meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; font-size: 15px; color: var(--muted); }
+    .notice { display: flex; gap: 10px; align-items: flex-start; background: #FFF8E1; border: 1px solid #F3D98B; border-radius: 12px; padding: 12px 14px; font-size: 15px; color: #5D4300; max-width: 560px; }
+    .notice svg { flex: none; margin-top: 3px; }
+
+    .qr-card { display: none; flex: 1 1 320px; min-width: 0; justify-content: center; }
+    .qr-inner { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; align-items: center; gap: 16px; width: 100%; max-width: 360px; text-align: center; }
+    #qr { width: 220px; height: 220px; display: grid; place-items: center; }
+    #qr svg { width: 100%; height: 100%; }
+    .qr-fallback { font-size: 15px; color: var(--muted); word-break: break-all; }
+    .qr-title { font-weight: 700; font-size: 20px; color: var(--teal-dark); }
+    .qr-sub { font-size: 16px; color: var(--muted); }
+
+    /* Sections */
+    .sections { display: flex; flex-direction: column; }
+    .band { padding: 28px 0; }
+    .band-white { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .band h2 { margin: 0 0 6px; font-size: 26px; color: var(--teal-dark); }
+    .band .intro { margin: 0 0 20px; color: var(--muted); font-size: 16px; }
+    #pasang { order: 1; }
+    #ciri { order: 2; }
+    #masalah { order: 3; }
+
+    /* Steps */
+    .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+    .step { display: flex; gap: 14px; padding-bottom: 20px; }
+    .step:last-child { padding-bottom: 0; }
+    .step-rail { display: flex; flex-direction: column; align-items: center; }
+    .step-num { flex: none; width: 36px; height: 36px; border-radius: 999px; background: var(--teal); color: #fff; font-weight: 700; display: grid; place-items: center; }
+    .step-line { flex: 1; width: 2px; background: var(--line); margin-top: 6px; }
+    .step:last-child .step-line { display: none; }
+    .step-body { display: flex; flex-direction: column; gap: 8px; padding-top: 4px; min-width: 0; }
+    .step h3 { margin: 0; font-size: 19px; }
+    .step p { margin: 0; font-size: 16px; color: var(--muted); }
+    .chip { align-self: flex-start; font-size: 14px; font-weight: 700; color: var(--teal); border: 1px solid #9FC9C4; border-radius: 8px; padding: 3px 10px; }
+    .toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #F7FAFA; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; font-size: 15px; max-width: 340px; }
+    .toggle { flex: none; width: 40px; height: 22px; border-radius: 999px; background: var(--teal); display: inline-flex; justify-content: flex-end; padding: 3px; }
+    .toggle span { width: 16px; height: 16px; border-radius: 999px; background: #fff; }
+    .dialog { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); max-width: 340px; }
+    .dialog-title { font-weight: 700; font-size: 16px; }
+    .dialog-text { font-size: 14px; color: var(--muted); }
+    .dialog-actions { display: flex; justify-content: flex-end; gap: 16px; font-size: 15px; }
+    .dialog-actions .hl { font-weight: 700; color: var(--teal); border: 2px solid var(--teal); border-radius: 8px; padding: 0 8px; }
+
+    /* Features */
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+    .feature { background: #FBFEFE; border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; gap: 14px; align-items: flex-start; }
+    .feature-icon { flex: none; width: 44px; height: 44px; border-radius: 11px; background: var(--teal-soft); color: var(--teal); display: grid; place-items: center; }
+    .feature h3 { margin: 0; font-size: 18px; }
+    .feature p { margin: 4px 0 0; font-size: 15px; color: var(--muted); }
+    .tags { display: flex; gap: 8px; margin-top: 8px; }
+    .tag { font-weight: 700; font-size: 13px; padding: 2px 10px; border-radius: 999px; }
+    .tag-ok { background: #E3F5E5; color: #1B5E20; }
+    .tag-bad { background: #FDE7E7; color: #B71C1C; }
+
+    /* Troubleshooting */
+    .faq { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px 24px; }
+    .faq div { border-top: 3px solid var(--line); padding-top: 12px; }
+    .faq h3 { margin: 0 0 4px; font-size: 17px; }
+    .faq p { margin: 0; font-size: 15px; color: var(--muted); }
+
+    footer { border-top: 1px solid var(--line); background: var(--card); }
+    footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 20px; padding-bottom: 20px; font-size: 14px; color: var(--muted); }
+
+    /* Wider screens: show QR, put features before steps */
+    @media (min-width: 820px) {
+      .wrap { padding: 0 24px; }
+      .topnav .desktop-only { display: inline; }
+      .hero .wrap { padding-top: 72px; padding-bottom: 64px; }
+      .hero h1 { font-size: 52px; }
+      .lead { font-size: 20px; }
+      .btn-download { width: auto; }
+      .see-steps { display: inline; }
+      .meta { justify-content: flex-start; font-size: 16px; }
+      .qr-card { display: flex; }
+      .band { padding: 64px 0; }
+      .band h2 { font-size: 36px; }
+      .band .intro { font-size: 18px; margin-bottom: 32px; }
+      #ciri { order: 1; }
+      #pasang { order: 2; }
+      .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+      .step { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+      .step:last-child { padding-bottom: 24px; }
+      .step-line { display: none; }
+      .feature { flex-direction: column; padding: 24px; }
+      .feature h3 { font-size: 21px; }
+      .feature p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <a class="brand" href="/download/"><span class="brand-mark" aria-hidden="true">M</span>MAVeRT</a>
+      <nav class="topnav" aria-label="Navigasi">
+        <a class="desktop-only" href="#ciri">Ciri-ciri</a>
+        <a class="desktop-only" href="#pasang">Cara pasang</a>
+        <a href="/privacy/">Dasar Privasi</a>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-text">
+          <span class="pill">Terapi Pemulihan Vestibular di Rumah</span>
+          <h1>Muat turun aplikasi MAVeRT</h1>
+          <p class="lead">Lakukan senaman pemulihan vestibular di rumah dengan panduan langkah demi langkah. Kamera telefon menyemak setiap senaman, dan kemajuan anda dihantar terus kepada klinik.</p>
+          <div class="actions">
+            <a class="btn-download" href="/download/mavert.apk" download="mavert.apk">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+              Muat turun APK
+            </a>
+            <a class="see-steps" href="#pasang">Lihat cara pasang</a>
+          </div>
+          <div class="meta">
+            <span>Versi 1.0.0</span>
+            <span>Android 11 ke atas</span>
+            <span>62.5 MB</span>
+            <span>Dikemas kini 18 November 2026</span>
+          </div>
+          <div class="notice">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+            <span>MAVeRT belum ada di Google Play. Pasang terus dari fail APK ini, untuk telefon Android sahaja. Selepas muat turun, ikut langkah pemasangan di bawah.</span>
+          </div>
+        </div>
+
+        <div class="qr-card">
+          <div class="qr-inner">
+            <div id="qr" role="img" aria-label="Kod QR ke laman muat turun MAVeRT">
+              <span class="qr-fallback" id="qr-fallback"></span>
+            </div>
+            <div>
+              <div class="qr-title">Imbas dengan telefon</div>
+              <div class="qr-sub">Buka kamera telefon Android, halakan pada kod ini dan tekan pautan yang muncul.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sections">
+      <section class="band band-white" id="ciri">
+        <div class="wrap">
+          <h2>Apa yang MAVeRT boleh buat</h2>
+          <p class="intro">Satu sesi ada 8 senaman. Lakukan 3 sesi seminggu selama 8 minggu.</p>
+          <div class="features">
+            <div class="feature">
+              <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+              <div><h3>Sesi senaman berpandu</h3><p>8 senaman dengan video demonstrasi. Boleh berhenti sebentar dan sambung semula pada hari yang sama.</p></div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div>
+              <div><h3>Semakan pergerakan</h3><p>Kamera mengira ulangan dan menyemak pergerakan badan anda. Video tidak dirakam atau dihantar ke mana-mana.</p></div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+              <div><h3>Penjejakan mata</h3><p>Menyemak pergerakan mata semasa senaman mata, terus dalam telefon anda.</p></div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></div>
+              <div>
+                <h3>Maklum balas segera</h3><p>Selepas setiap senaman, anda terus tahu keputusannya.</p>
+                <div class="tags"><span class="tag tag-ok">Betul</span><span class="tag tag-bad">Tidak betul</span></div>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+              <div><h3>Diari digital</h3><p>Kalendar menandakan hari anda selesai sesi, supaya mudah ikut jadual 3 kali seminggu.</p></div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V11M10 20V5M16 20v-6M21 20H3"/></svg></div>
+              <div><h3>Kemajuan mingguan</h3><p>Lihat sejarah sesi dan ketepatan senaman dari minggu 1 hingga minggu 8. Klinik nampak data yang sama.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="pasang">
+        <div class="wrap">
+          <h2>Cara pasang di telefon</h2>
+          <p class="intro">Ambil masa kira-kira 2 minit. Nama butang mungkin sedikit berbeza mengikut jenama telefon.</p>
+          <ol class="steps">
+            <li class="step">
+              <div class="step-rail"><span class="step-num">1</span><span class="step-line"></span></div>
+              <div class="step-body">
+                <h3>Muat turun fail APK</h3>
+                <p>Tekan butang Muat turun APK di atas. Jika Chrome bertanya, pilih Muat turun juga.</p>
+                <span class="chip">mavert.apk</span>
+              </div>
+            </li>
+            <li class="step">
+              <div class="step-rail"><span class="step-num">2</span><span class="step-line"></span></div>
+              <div class="step-body">
+                <h3>Buka fail yang dimuat turun</h3>
+                <p>Tekan pemberitahuan muat turun, atau buka aplikasi Fail, pergi ke folder Muat Turun dan tekan mavert.apk.</p>
+              </div>
+            </li>
+            <li class="step">
+              <div class="step-rail"><span class="step-num">3</span><span class="step-line"></span></div>
+              <div class="step-body">
+                <h3>Benarkan pemasangan</h3>
+                <p>Jika telefon menyekat pemasangan, tekan Tetapan dan hidupkan suis ini untuk Chrome atau Fail. Kemudian tekan butang kembali.</p>
+                <div class="toggle-row" aria-hidden="true"><span>Benarkan dari sumber ini</span><span class="toggle"><span></span></span></div>
+              </div>
+            </li>
+            <li class="step">
+              <div class="step-rail"><span class="step-num">4</span><span class="step-line"></span></div>
+              <div class="step-body">
+                <h3>Tekan Pasang</h3>
+                <p>Jika Google Play Protect memberi amaran, ini biasa bagi aplikasi yang belum ada di Play Store.</p>
+                <div class="dialog" aria-hidden="true">
+                  <div class="dialog-title">Apl tidak selamat disekat</div>
+                  <div class="dialog-text">Play Protect tidak mengenali pembangun apl ini.</div>
+                  <div class="dialog-actions"><span>OK</span><span class="hl">Butiran lanjut</span></div>
+                </div>
+                <p>Tekan <strong>Butiran lanjut</strong>, kemudian <strong>Pasang juga</strong>.</p>
+              </div>
+            </li>
+            <li class="step">
+              <div class="step-rail"><span class="step-num">5</span><span class="step-line"></span></div>
+              <div class="step-body">
+                <h3>Buka MAVeRT dan log masuk</h3>
+                <p>Daftar atau log masuk, kemudian benarkan akses kamera supaya senaman boleh disemak.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="band" id="masalah">
+        <div class="wrap">
+          <h2>Masalah semasa memasang?</h2>
+          <div class="faq">
+            <div>
+              <h3>"Aplikasi tidak dipasang"</h3>
+              <p>Buang versi MAVeRT lama dari telefon dahulu, kemudian pasang semula fail baharu.</p>
+            </div>
+            <div>
+              <h3>"Ralat menghurai pakej"</h3>
+              <p>Telefon anda mungkin di bawah Android 11, atau fail tidak dimuat turun sepenuhnya. Semak versi Android di Tetapan, kemudian muat turun semula.</p>
+            </div>
+            <div>
+              <h3>Masih tidak berjaya?</h3>
+              <p>Hubungi pegawai perubatan atau ahli fisioterapi yang merawat anda, dan beritahu jenama serta model telefon anda.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>MAVeRT: Terapi Pemulihan Vestibular di Rumah</span>
+      <a href="/privacy/">Dasar Privasi</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <script>
+    (function () {
+      var pageUrl = window.location.origin + "/download/";
+      var box = document.getElementById("qr");
+      var fallback = document.getElementById("qr-fallback");
+      fallback.textContent = pageUrl;
+      if (typeof window.qrcode !== "function") return;
+      try {
+        var qr = window.qrcode(0, "M");
+        qr.addData(pageUrl);
+        qr.make();
+        box.innerHTML = qr.createSvgTag({ cellSize: 6, margin: 2, scalable: true });
+      } catch (e) {
+        /* keep the plain URL as fallback */
+      }
+    })();
+  </script>
+</body>
+</html>

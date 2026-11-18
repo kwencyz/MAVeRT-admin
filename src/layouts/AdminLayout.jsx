@@ -48,6 +48,16 @@ function AdminLayout() {
         <NavLink to="/profile" className="nav-item" onClick={closeSidebar}>
           Profile
         </NavLink>
+
+        <a
+          href="/download/"
+          className="nav-item"
+          target="_blank"
+          rel="noopener"
+          onClick={closeSidebar}
+        >
+          Muat turun aplikasi
+        </a>
       </aside>
 
       {/* Main Area */}
