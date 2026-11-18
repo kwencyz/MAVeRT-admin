@@ -29,6 +29,11 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-wrap: wrap;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
     }
 
     select,
@@ -40,6 +45,11 @@
       font-size: 14px;
       transition: 0.2s ease;
       min-width: 160px;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        min-width: unset;
+      }
 
       &:focus {
         outline: none;
@@ -57,6 +67,10 @@
       font-weight: 500;
       cursor: pointer;
       transition: all 0.2s ease;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
 
       &:hover {
         transform: translateY(-1px);

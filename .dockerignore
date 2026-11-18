@@ -1,0 +1,10 @@
+node_modules
+dist
+npm-debug.log
+.git
+.gitignore
+.claude
+.DS_Store
+_to_delete
+Dockerfile
+README.md
