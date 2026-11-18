@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dasar Privasi MAVeRT</title>
+  <meta name="description" content="Dasar privasi aplikasi MAVeRT untuk terapi pemulihan vestibular di rumah." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #00796B;
+      --teal-dark: #004D40;
+      --text: #1A1A1A;
+      --muted: #4A4A4A;
+      --bg: #F4FBFB;
+      --card: #FFFFFF;
+      --line: #D5E5E3;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+    header {
+      background: var(--teal);
+      color: #fff;
+      padding: 40px 16px 32px;
+    }
+    header .wrap, main { max-width: 760px; margin: 0 auto; }
+    header h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.2; }
+    header p { margin: 0; opacity: 0.9; }
+    main { padding: 24px 16px 64px; }
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+    }
+    h2 { margin: 0 0 10px; font-size: 22px; color: var(--teal-dark); }
+    p { margin: 0 0 12px; }
+    p:last-child, ul:last-child { margin-bottom: 0; }
+    ul { margin: 0 0 12px; padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    a { color: var(--teal); font-weight: 700; }
+    .muted { color: var(--muted); }
+    footer { text-align: center; color: var(--muted); font-size: 15px; padding: 0 16px 40px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Dasar Privasi MAVeRT</h1>
+      <p>Berkuat kuasa mulai 2 November 2026</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Tentang dasar ini</h2>
+      <p>MAVeRT ialah aplikasi untuk menjalani Terapi Pemulihan Vestibular (VRT) di rumah. Dasar ini menerangkan data yang kami kumpul apabila anda menggunakan aplikasi MAVeRT, bagaimana data itu digunakan, dan hak anda ke atas data tersebut.</p>
+      <p>MAVeRT dibangunkan oleh Haziq Ruslan, Universiti Kebangsaan Malaysia (UKM). Kami mengendalikan data peribadi anda mengikut Akta Perlindungan Data Peribadi 2010.</p>
+    </section>
+
+    <section>
+      <h2>Data yang kami kumpul</h2>
+      <p><strong>Maklumat akaun</strong>, yang anda berikan semasa mendaftar:</p>
+      <ul>
+        <li>Nama dan alamat emel</li>
+        <li>Kata laluan (disimpan dalam bentuk yang disulitkan, kami tidak dapat melihatnya)</li>
+        <li>Umur dan jantina, jika diberikan</li>
+        <li>Tarikh mula program terapi</li>
+      </ul>
+      <p><strong>Data senaman</strong>, yang direkod semasa anda menggunakan aplikasi:</p>
+      <ul>
+        <li>Tarikh sesi, masa mula dan tamat, serta tempoh masa bersenam</li>
+        <li>Senaman yang dilakukan dan keputusannya (betul atau salah)</li>
+        <li>Bilangan kali anda menonton video demonstrasi setiap senaman</li>
+      </ul>
+      <p><strong>Maklumat peranti:</strong> token notifikasi (kod yang membolehkan kami menghantar peringatan senaman ke telefon anda).</p>
+    </section>
+
+    <section>
+      <h2>Kamera</h2>
+      <p>Aplikasi menggunakan kamera telefon semasa senaman untuk mengira ulangan dan menyemak pergerakan badan serta mata anda. Pemprosesan ini berlaku sepenuhnya dalam telefon anda.</p>
+      <ul>
+        <li>Video dan gambar daripada kamera <strong>tidak dirakam, tidak disimpan dan tidak dihantar</strong> ke mana-mana pelayan.</li>
+        <li>Hanya keputusan senaman (contohnya betul atau salah) yang dihantar kepada kami.</li>
+      </ul>
+      <p>Foto profil yang anda pilih disimpan dalam telefon anda sahaja dan tidak dimuat naik.</p>
+    </section>
+
+    <section>
+      <h2>Bagaimana kami menggunakan data anda</h2>
+      <ul>
+        <li>Membolehkan anda log masuk dan menggunakan aplikasi</li>
+        <li>Merekod kemajuan senaman anda dalam diari digital</li>
+        <li>Membolehkan pegawai perubatan atau ahli fisioterapi yang merawat anda memantau kepatuhan dan prestasi senaman anda dari jauh</li>
+        <li>Menghantar peringatan senaman, jika notifikasi dihidupkan</li>
+      </ul>
+      <p>Kami tidak menjual data anda, tidak menggunakannya untuk iklan, dan tidak menggunakan alat analitik atau penjejakan pihak ketiga.</p>
+    </section>
+
+    <section>
+      <h2>Siapa yang boleh melihat data anda</h2>
+      <ul>
+        <li><strong>Pegawai perubatan atau ahli fisioterapi</strong> yang menguruskan program terapi anda, melalui papan pemuka MAVeRT.</li>
+        <li><strong>Firebase Cloud Messaging (Google)</strong>, yang menerima token notifikasi anda untuk menghantar peringatan.</li>
+        <li><strong>YouTube (Google)</strong>, yang menyiarkan video demonstrasi senaman dalam aplikasi. Apabila video dimainkan, YouTube mungkin mengumpul data mengikut <a href="https://policies.google.com/privacy?hl=ms" target="_blank" rel="noopener">Dasar Privasi Google</a>.</li>
+      </ul>
+      <p>Kami tidak berkongsi data anda dengan pihak lain kecuali jika dikehendaki oleh undang-undang.</p>
+    </section>
+
+    <section>
+      <h2>Keselamatan dan tempoh simpanan</h2>
+      <p>Data dihantar melalui sambungan yang disulitkan (HTTPS) dan disimpan dalam pelayan yang dikendalikan oleh kami. Akses kepada data dihadkan kepada pihak yang memerlukannya untuk program terapi anda.</p>
+      <p>Kami menyimpan data anda selagi akaun anda wujud. Apabila akaun dipadam, data akaun dan rekod senaman anda akan dipadam daripada pelayan kami.</p>
+    </section>
+
+    <section>
+      <h2>Hak anda dan pemadaman akaun</h2>
+      <p>Anda berhak untuk meminta salinan data anda, membetulkan data yang tidak tepat, dan memadam akaun anda.</p>
+      <p><strong>Untuk memadam akaun:</strong></p>
+      <ul>
+        <li>Dalam aplikasi, pergi ke <strong>Profil</strong> dan tekan <strong>Padam Akaun</strong>. Ini memadam akaun dan data dalam telefon anda.</li>
+        <li>Untuk memadam data anda daripada pelayan kami, hantar emel ke <a href="mailto:haziqruslan27@gmail.com?subject=Permintaan%20Padam%20Akaun%20MAVeRT">haziqruslan27@gmail.com</a> daripada alamat emel akaun anda. Kami akan memadam akaun dan semua rekod senaman anda dalam tempoh 30 hari dan memaklumkan anda apabila selesai.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Kanak-kanak</h2>
+      <p>MAVeRT ditujukan untuk orang dewasa berumur 18 tahun ke atas dan tidak bertujuan untuk digunakan oleh kanak-kanak.</p>
+    </section>
+
+    <section>
+      <h2>Perubahan kepada dasar ini</h2>
+      <p>Kami mungkin mengemas kini dasar ini dari semasa ke semasa. Tarikh berkuat kuasa di bahagian atas halaman ini akan dikemas kini setiap kali ada perubahan.</p>
+    </section>
+
+    <section>
+      <h2>Hubungi kami</h2>
+      <p>Jika anda mempunyai sebarang soalan tentang dasar ini atau data anda, sila hubungi:</p>
+      <p>Haziq Ruslan<br />Universiti Kebangsaan Malaysia<br /><a href="mailto:haziqruslan27@gmail.com">haziqruslan27@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer>© 2026 MAVeRT</footer>
+</body>
+</html>

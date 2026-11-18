@@ -8,6 +8,11 @@
   flex-direction: column;
   gap: 30px;
 
+  @media (max-width: 768px) {
+    padding: 16px 12px;
+    gap: 16px;
+  }
+
   .patient-header {
     display: flex;
     justify-content: space-between;
@@ -35,8 +40,9 @@
 
   /*  SUMMARY CARDS  */
   .dashboard-cards {
-    display: flex;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
   }
 
   .summary-card {

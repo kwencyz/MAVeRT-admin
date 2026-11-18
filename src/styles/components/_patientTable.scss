@@ -1,14 +1,20 @@
 @use '../index' as *;
 
+.patient-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+}
+
 .patient-table {
   border-radius: 20px;
   overflow: hidden;
   width: 100%;
+  min-width: 480px;
   padding: 10px;
   border-collapse: collapse;
-
-  box-shadow:
-    0 20px 40px rgba(0,0,0,0.04);
+  box-shadow: none;
 
   thead {
     position: sticky;
@@ -16,10 +22,10 @@
     z-index: 5;
   }
 
-
   th {
     background: rgba(15,163,163,0.08);
     color: $secondary-navy;
+    white-space: nowrap;
   }
 
   td, th {

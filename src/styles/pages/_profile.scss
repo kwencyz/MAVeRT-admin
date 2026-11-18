@@ -72,6 +72,8 @@
     align-items: center;
     padding-bottom: 12px;
     border-bottom: 1px solid #f1f5f9;
+    flex-wrap: wrap;
+    gap: 6px;
 
     &:last-child {
       border-bottom: none;

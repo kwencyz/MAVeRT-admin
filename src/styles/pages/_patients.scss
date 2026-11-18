@@ -11,6 +11,8 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 16px;
 
   h2 {
     color: $secondary-navy;
@@ -29,6 +31,10 @@
   border: 1px solid #d1d5db;
   width: 280px;
   transition: all .25s ease;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 
   &:focus {
     outline: none;
